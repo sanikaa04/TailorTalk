@@ -12,7 +12,7 @@ user_input = st.chat_input("Ask me to book a meeting or check availability...")
 if user_input:
     st.session_state.chat_history.append(("user", user_input))
     with st.spinner("Thinking..."):
-        res = requests.post("http:tailottalk-production.up.railway.app", json={"message": user_input})
+        res = requests.post("https://tailorttalk-production.up.railway.app/chat", json={"message": user_input})
         bot_response = res.json().get("response", "No response")
         st.session_state.chat_history.append(("bot", bot_response))
 
